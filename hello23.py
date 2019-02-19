@@ -1,3 +1,5 @@
 print("Haaaaaaaay World")
 print("do you like cookies")
 print("whats up")
+print ("you are the bomb")
+print ("who are you?")
