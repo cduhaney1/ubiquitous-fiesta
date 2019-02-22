@@ -56,7 +56,7 @@ all_sprites.add(player)
 lefttextsurface = myfont.render('Hello world', False, (0, 255, 255))
 answers = ['Good', 'Sex','Booze', 'Choclate']
 righttextsurface = myfont.render('Chastity Kick Ass', False, (255, 0, 255))
-questions = ['What the fuck you say?,' "If you dont wash these dishes, I'm ___", "Who is your father?,"]
+questions = ['What the fuck you say?', "If you dont wash these dishes, I'm ___", "Who is your father?", "If I have to tell you again__ "]
 
 
 #Game Loop
@@ -71,10 +71,11 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONUP:
             #textsurface = myfont.render('Goodbye world', False, (255, 255, 255))
+            number = (random.randint(0, 3))
             if pygame.mouse.get_pos()[0] > 150 and pygame.mouse.get_pos()[0] < 350 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
-                lefttextsurface = myfont.render( answers[0], False, (0, 255, 0))
+                lefttextsurface = myfont.render( answers[number], False, (0, 255, 0))
             elif pygame.mouse.get_pos()[0] > 450 and pygame.mouse.get_pos()[0] < 650 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
-                righttextsurface = myfont.render(questions[0], False, (0, 255, 0))
+                righttextsurface = myfont.render(questions[number], False, (0, 255, 0))
             
 
             
