@@ -56,7 +56,7 @@ all_sprites.add(player)
 lefttextsurface = myfont.render('Hello world', False, (0, 255, 255))
 answers = ['img/Img1.png', 'img/Img2.png','img/Img3.png', 'img/Img4.png']
 righttextsurface = myfont.render('Chastity Kick Ass', False, (255, 0, 255))
-questions = ['img/Qimg1.png', 'img/Qimg2.png', 'img/Qimg3.png', 'img/Qimg4.png']
+questions = ['img/cover1.png', 'img/Qimg1.png', 'img/Qimg2.png', 'img/Qimg3.png', 'img/Qimg4.png']
 
 
 #Game Loop
@@ -70,7 +70,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONUP:
-            #textsurface = myfont.render('Goodbye world', False, (255, 255, 255))
+            #textsurface = myfont.render('Cards Against Moms', False, (255, 255, 255))
             number = (random.randint(0, 3))
             if pygame.mouse.get_pos()[0] > 150 and pygame.mouse.get_pos()[0] < 350 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
                 lefttextsurface = pygame.image.load(answers[number]).convert_alpha()
