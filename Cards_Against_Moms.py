@@ -47,16 +47,16 @@ pygame.font.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Cards Against Moms")
 clock = pygame.time.Clock()
-myfont = pygame.font.SysFont('Comic Sans MS', 30)
+myfont = pygame.font.SysFont('Georgia', 30)
 
 
 all_sprites = pygame.sprite.Group()
 player = Player()
 all_sprites.add(player)
 lefttextsurface = myfont.render('Hello world', False, (0, 255, 255))
-answers = ['Good', 'Sex','Booze', 'Choclate']
+answers = ['img/Img1.png', 'img/Img2.png','img/Img3.png', 'img/Img4.png']
 righttextsurface = myfont.render('Chastity Kick Ass', False, (255, 0, 255))
-questions = ['What the fuck you say?', "If you dont wash these dishes, I'm ___", "Who is your father?", "If I have to tell you again__ "]
+questions = ['img/Qimg1.png', 'img/Qimg2.png', 'img/Qimg3.png', 'img/Qimg4.png']
 
 
 #Game Loop
@@ -73,9 +73,10 @@ while running:
             #textsurface = myfont.render('Goodbye world', False, (255, 255, 255))
             number = (random.randint(0, 3))
             if pygame.mouse.get_pos()[0] > 150 and pygame.mouse.get_pos()[0] < 350 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
-                lefttextsurface = myfont.render( answers[number], False, (0, 255, 0))
+                lefttextsurface = pygame.image.load(answers[number]).convert_alpha()
+                #lefttextsurface = myfont.render( answers[number], False, (0, 255, 0))
             elif pygame.mouse.get_pos()[0] > 450 and pygame.mouse.get_pos()[0] < 650 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
-                righttextsurface = myfont.render(questions[number], False, (0, 255, 0))
+                righttextsurface = pygame.image.load(questions[number]).convert_alpha()
             
 
             
@@ -84,8 +85,8 @@ while running:
     # Draw/render
     screen.fill(BLACK)
     pygame.draw.rect(screen, [255, 255, 255], [150, 150, 200, 300], 0)
-    screen.blit(lefttextsurface, (250, HEIGHT / 2))
-    screen.blit(righttextsurface, (550, HEIGHT / 2))
+    screen.blit(lefttextsurface, (150, 150))
+    screen.blit(righttextsurface, (450, 150))
     pygame.draw.rect(screen, [255, 255, 255 ], [450, 150, 200, 300 ], 5)
    #all_sprites.draw(screen)
     # *after* drawing everthing, flip the display
