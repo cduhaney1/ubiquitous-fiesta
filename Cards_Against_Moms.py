@@ -53,7 +53,8 @@ myfont = pygame.font.SysFont('Comic Sans MS', 30)
 all_sprites = pygame.sprite.Group()
 player = Player()
 all_sprites.add(player)
-textsurface = myfont.render('Hello world', False, (255, 255, 255))
+lefttextsurface = myfont.render('Hello world', False, (0, 255, 255))
+righttextsurface = myfont.render('Chastity Kick Ass', False, (255, 0, 255))
 
 
 #Game Loop
@@ -67,7 +68,12 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame.MOUSEBUTTONUP:
-            textsurface = myfont.render('Goodbye world', False, (255, 255, 255))
+            #textsurface = myfont.render('Goodbye world', False, (255, 255, 255))
+            if pygame.mouse.get_pos()[0] > 150 and pygame.mouse.get_pos()[0] < 350 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
+                lefttextsurface = myfont.render('Left side', False, (0, 255, 0))
+            elif pygame.mouse.get_pos()[0] > 450 and pygame.mouse.get_pos()[0] < 650 and pygame.mouse.get_pos()[1] > 150 and pygame.mouse.get_pos()[1] < 450:
+                righttextsurface = myfont.render('Right side', False, (0, 255, 0))
+            
 
             
     # Update
@@ -75,7 +81,9 @@ while running:
     # Draw/render
     screen.fill(BLACK)
     pygame.draw.rect(screen, [255, 255, 255], [150, 150, 200, 300], 0)
-    screen.blit(textsurface, (WIDTH / 2, HEIGHT / 2))
+    screen.blit(lefttextsurface, (250, HEIGHT / 2))
+    screen.blit(righttextsurface, (550, HEIGHT / 2))
+    pygame.draw.rect(screen, [255, 255, 255 ], [450, 150, 200, 300 ], 5)
    #all_sprites.draw(screen)
     # *after* drawing everthing, flip the display
     pygame.display.flip()
